@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL CLOCK</title>
+    <link rel="stylesheet" href="./style/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="digital-clock">
+      <div class="time">
+        <span class="hours">00</span>
+        <span class="dots">:</span>
+        <span class="minutes">00</span>
+        <div class="right-side">
+          <span class="period">PM/AM</span>
+          <span class="seconds">00</span>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+        function tick(){
+            var time=new Date()
+            var hours=time.getHours()
+            var minutes=time.getMinutes()
+            var seconds=time.getSeconds()
+            var period="AM"
+
+            if (hours>=12){
+                period="PM"
+            }
+
+            hours=hours>12? hours%12:hours
+            hours=hours<10? "0"+hours:hours
+            minutes=minutes<10? "0"+minutes:minutes
+            seconds=seconds<10? "0"+seconds:seconds
+            
+
+
+            document.querySelector(".hours").innerHTML=hours
+            document.querySelector(".seconds").innerHTML=seconds
+            document.querySelector(".minutes").innerHTML=minutes
+            document.querySelector(".period").innerHTML=period
+        }
+
+
+
+        setInterval(function(){
+            tick()
+        },1000)
+    </script>
+  </body>
+</html>

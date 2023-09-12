@@ -1,0 +1,111 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e44;
+}
+.digital-clock{
+    position: relative;
+    color: #fff;
+    background-color: #2d2f41;
+    width: 390px;
+    padding: 20px 45px;
+    box-shadow: 0px 5px 25px rgba(14,21,37,.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.digital-clock::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg,#24ff6d,#2f93f1,#ff5e9a);
+    background-size: 200% 200%;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(40px);
+    animation: glowing 5s ease infinite;
+}
+
+.time{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.hours,.dots,.minutes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 0 10px;
+    line-height: 125px;
+}
+.hours,.minutes{
+    font-size: 7.5em;
+    width: 125px;
+}
+.dots{
+    font-size: 7em;
+    color: #929292;
+}
+.hours{
+    background: -webkit-linear-gradient(90deg, #634dff,#5fd4ff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.minutes{
+    background: -webkit-linear-gradient(90deg, #ff5e9a,#ffb960);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.right-side{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.period,.seconds{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.period{
+    transform: translateY(-20px);
+    background: -webkit-linear-gradient(90deg, #f7b63f,#faf879);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+}
+.seconds{
+    transform: translateY(16px);
+    background: -webkit-linear-gradient(90deg, #24ff6d,#2f93f1);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@keyframes glowing{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
